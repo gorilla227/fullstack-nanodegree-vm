@@ -42,3 +42,9 @@ def get_all_menu_items():
     items = session.query(MenuItem).all()
     print items
     return items
+
+def get_all_menu_items_for(restaurant_id):
+    restaurant = get_restaurant(restaurant_id)
+    items = session.query(MenuItem).filter_by(restaurant = restaurant).all()
+    print items
+    return items
